@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => {
+const port = 3000;
+
+app.get("/api/resort_data/:resort", (req, res) => {
     res.set('Content-Type', 'text/plain');
     res.send("sup")
-    console.log("request recieved");
+    console.log(`request for ${resort} recieved`);
 });
 
-app.listen(3000, () =>
-    {console.log("server started on port 3000")}
+app.listen(port, () =>
+    {console.log(`server started on port ${port}`)}
 );
