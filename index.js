@@ -1,14 +1,15 @@
+
+require("dotenv").config();
 const express = require("express");
+const routes = require('./routes/routes');
+
 const app = express();
 
-const port = 3000;
+app.use(express.json());
 
-app.get("/api/resort_data/:resort", (req, res) => {
-    res.set('Content-Type', 'text/plain');
-    res.send("sup")
-    console.log(`request for ${resort} recieved`);
-});
+app.use('/', routes); // needed to use routes
 
+const port = process.env.PORT;
 app.listen(port, () =>
     {console.log(`server started on port ${port}`)}
 );
