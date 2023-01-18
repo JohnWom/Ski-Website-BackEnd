@@ -26,32 +26,7 @@ function writeCondition(information) {
 
 };
 
-function setValue(r) {
-    let a = r
-}
-
-// Function to get Conditions for the API
-function getConditions(resort) {
-    let conditions;
-    function setValue(value) {
-        conditions = value;
-    };
-
-    connection.query(`SELECT ResortID id FROM Resorts WHERE ResortName = '${resort}'`, (err, rows, fields) => {
-        id = rows[0].id;
-        const conditions = connection.query(`SELECT Date, LiftsOpen, LiftsTotal, TrailsOpen, TrailsTotal, TerrainOpen FROM Conditions WHERE ResortID = ${id}`, (err, rows, fields) => {
-            setValue(rows)
-        });
-    });
-    console.log(conditions)
-    return conditions;
-};
-
-
-
-
 
 module.exports = {
-    writeCondition,
-    getConditions
+    writeCondition
 }
